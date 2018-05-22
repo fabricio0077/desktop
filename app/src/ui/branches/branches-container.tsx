@@ -12,7 +12,7 @@ import {
   PopupType,
   CompareActionKind,
   ComparisonView,
-  RepositorySectionTab,
+  RepositorySection,
 } from '../../lib/app-state'
 import { assertNever } from '../../lib/fatal-error'
 
@@ -109,9 +109,10 @@ export class BranchesContainer extends React.Component<
       branch,
       mode: ComparisonView.Behind,
     })
-    await this.props.dispatcher.changeRepositorySection(this.props.repository, {
-      selectedTab: RepositorySectionTab.History,
-    })
+    await this.props.dispatcher.changeRepositorySection(
+      this.props.repository,
+      RepositorySection.History
+    )
     await this.props.dispatcher.closeFoldout(FoldoutType.Branch)
   }
 
